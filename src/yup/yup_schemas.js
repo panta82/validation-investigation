@@ -1,6 +1,6 @@
 const yup = require('yup');
 
-const ERR = require('./error_codes');
+const ERR = require('../error_codes');
 
 const StreetAddressSchema = {
   address_line_1: yup.string().required(ERR.street_address_required),
