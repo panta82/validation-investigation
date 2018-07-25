@@ -1,0 +1,7 @@
+{
+	"errors": {
+		"street_address_required": "Street address is required",
+		"street_address_city_length": "City must be at least 2 characters long",
+		"phone_calling_hours_format": "Phone calling hours must be formated like \"08-16\""
+	}
+}
