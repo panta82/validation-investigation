@@ -3,6 +3,7 @@ module.exports = {
   street_address_city_length: 'street_address_city_length',
   
   phone_calling_hours_format: 'phone_calling_hours_format',
+  phone_number_required: 'phone_number_required',
   
   identity_name_required: 'identity_name_required',
   identity_primary_address_required: 'identity_primary_address_required',

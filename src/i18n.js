@@ -7,7 +7,7 @@ const NAMESPACE = 'common';
 
 const resources = {};
 LANGUAGES.forEach(language => {
-  const translations = fs.readFileSync(__dirname + `/translations/${language}.json`);
+  const translations = JSON.parse(fs.readFileSync(__dirname + `/translations/${language}.json`, 'utf8'));
   resources[language] = {
     [NAMESPACE]: translations
   };
@@ -15,7 +15,8 @@ LANGUAGES.forEach(language => {
 
 i18next.init({
   debug: false,
-  language: 'en',
+  lng: 'en',
+  ns: [NAMESPACE],
   defaultNS: NAMESPACE,
   resources
 });
