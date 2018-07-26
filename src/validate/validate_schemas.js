@@ -39,24 +39,36 @@ const IdentitySchema = {
     required: true,
     message: ERR.identity_name_required
   },
-  primary_address: joi
-    .object(StreetAddressSchema)
-    .required(ERR.identity_primary_address_required),
-  secondary_address: joi.object(StreetAddressSchema).nullable(true),
-  phone_numbers: joi
-    .array()
-    .of(joi.object(PhoneSchema))
-    .required(ERR.identity_at_least_one_phone_number_required)
+  primary_address: {
+  	schema: StreetAddressSchema,
+		required: true,
+		message: ERR.identity_primary_address_required
+	},
+  secondary_address: {
+		schema: StreetAddressSchema,
+	},
+  phone_numbers: {
+  	type: Array,
+		each: PhoneSchema,
+		required: true,
+		message: ERR.identity_at_least_one_phone_number_required
+	}
 };
 
 const UserSchema = {
-  username: joi.string().required(ERR.user_username_required),
-  identities: joi
-    .array()
-    .of(joi.object(IdentitySchema))
-    .required(ERR.user_at_least_one_identity_required)
+  username: {
+  	type: String,
+		required: true,
+		message: ERR.user_username_required
+	},
+  identities: {
+  	type: Array,
+		each: IdentitySchema,
+		required: true,
+		message: ERR.user_at_least_one_identity_required
+	}
 };
 
 module.exports = {
-  UserSchema: joi.object(UserSchema),
+  UserSchema: new Schema(UserSchema),
 };
