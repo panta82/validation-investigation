@@ -16,5 +16,8 @@
     "validate": "^4.4.1",
     "validate.js": "^0.12.0",
     "yup": "^0.26.0"
+  },
+  "devDependencies": {
+    "doca": "^0.4.0"
   }
 }
