@@ -78,8 +78,12 @@ https://github.com/Atinux/schema-inspector
 
 ## JSON schema further steps
 
-https://github.com/epoberezkin/ajv#api
+AJV, get it to print out schemas with all resolved children?
+- https://github.com/epoberezkin/ajv#api
 
-https://github.com/cloudflare/doca
-https://github.com/cloudflare/json-schema-loader
-https://github.com/cloudflare/json-schema-example-loader
+Get DOCA to do without reading JSON-s from HDD (or maybe generate JSONs
+on hdd before doing anything else)
+- https://github.com/cloudflare/doca
+- https://github.com/cloudflare/json-schema-loader
+- https://github.com/cloudflare/json-schema-example-loader
+
