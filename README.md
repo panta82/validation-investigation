@@ -76,5 +76,10 @@ https://github.com/Atinux/schema-inspector
 
 - Unmaintained
 
+## JSON schema further steps
 
+https://github.com/epoberezkin/ajv#api
 
+https://github.com/cloudflare/doca
+https://github.com/cloudflare/json-schema-loader
+https://github.com/cloudflare/json-schema-example-loader
