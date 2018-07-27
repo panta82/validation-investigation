@@ -46,13 +46,17 @@ https://github.com/eivindfjeldstad/validate
 
 http://validatejs.org/
 
-[+] Good declarative interface, support for custom messages
-[+] Browser support
-[-] No nested schemas
-[-] No casting the result object, whitelisting
+(+) Good declarative interface, support for custom messages
 
-- Good documentation
-- Seems abandoned
+(+) Browser support
+
+(+) Good documentation
+
+(-) No nested schemas
+
+(-) No casting the result object, whitelisting
+
+(-) Seems abandoned
 
 ### spected
 
