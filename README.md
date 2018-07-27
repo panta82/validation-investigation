@@ -6,8 +6,9 @@ http://node-modules.com/search?q=validation
 
 https://github.com/hapijs/joi
 
-- Best supported, most current
-- No custom error messages
+- The most popular that uses fluent API
+- Some good automated documentation generators
+- No custom error messages. Can be manually shoved in, but it sucks.
     - https://github.com/hapijs/joi/issues/1434
     - https://medium.com/@Yuschick/building-custom-localised-error-messages-with-joi-4a348d8cc2ba
 - No browser support
@@ -19,22 +20,26 @@ https://github.com/epoberezkin/ajv
 
 - Very popular
 - Uses JSON schema (a bit too fiddly?)
-- Can add documentation for properties
-- No custom errors, but can be casted using a modue with ugly interface
+- Browser support
+- Can add documentation for properties (very good!)
+- No custom errors, but can be added using ajv-errors module (ugly API)
     - https://github.com/epoberezkin/ajv-errors
-- Ok docs for ajv itself, but AWFUL for JSON schema
+- A lot of docs, but a bit of a mess and all over the place
     - https://ajv.js.org
     - https://jsonschema.net/
     - https://spacetelescope.github.io/understanding-json-schema/index.html
+- With correct switches, it seems it produces correct errors for deeply nested schemas
 
 ### Yup
 
 https://github.com/jquense/yup
 
-- All the features we need (including help messages)
 - Not as popular as others, but seems to be going up
-- Will have to create custom help page display, api spec serving
-- Will have to fix a few bugs or bad quirks in a wrapper
+- Custom error messages
+- Browser support
+- We would have to create custom help page display, api spec serving
+- Some quirks that needs custom coding to work around
+    - https://github.com/jquense/yup/issues/261
 - Fluent api, pleasent to use but non-portable?
 - Good docs
 
@@ -62,7 +67,8 @@ http://validatejs.org/
 
 https://github.com/25th-floor/spected
 
-TODO
+- Unpopular
+- Maintained but no longer updated, it seems
 
 ### schema-inspector
 
