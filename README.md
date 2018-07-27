@@ -19,8 +19,13 @@ https://github.com/epoberezkin/ajv
 
 - Very popular
 - Uses JSON schema (a bit too fiddly?)
-- No custom errors?
-- Good docs
+- Can add documentation for properties
+- No custom errors, but can be casted using a modue with ugly interface
+    - https://github.com/epoberezkin/ajv-errors
+- Ok docs for ajv itself, but AWFUL for JSON schema
+    - https://ajv.js.org
+    - https://jsonschema.net/
+    - https://spacetelescope.github.io/understanding-json-schema/index.html
 
 ### Yup
 
@@ -42,21 +47,16 @@ https://github.com/eivindfjeldstad/validate
 - Doesn't stop validating missing schemas (same as yup)
 - Awful documentation, doesn't instill confidence
 
-### Validate
+### Validate.js
 
 http://validatejs.org/
 
-(+) Good declarative interface, support for custom messages
-
-(+) Browser support
-
-(+) Good documentation
-
-(-) No nested schemas
-
-(-) No casting the result object, whitelisting
-
-(-) Seems abandoned
+- Good declarative interface, support for custom messages
+- Browser support
+- Good documentation
+- No nested schemas
+- No casting the result object, whitelisting
+- Seems abandoned
 
 ### spected
 

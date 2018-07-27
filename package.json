@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ajv": "^6.5.2",
+    "ajv-errors": "^1.0.0",
     "i18next": "^11.4.0",
     "joi": "^13.4.0",
     "validate": "^4.4.1",
