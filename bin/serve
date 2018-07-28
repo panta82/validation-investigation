@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+const {Server} = require('../src/api/server');
+
+const server = new Server();
+
+server.get('/api/users', {}, ctx => {
+	return [];
+});
+
+server.post('/api/users', {}, ctx => {
+	return {
+		status: true
+	};
+});
+
+server.start();
