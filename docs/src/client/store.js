@@ -3,7 +3,7 @@
 
 import { createStore } from 'redux';
 import docs from './reducers/index';
-import schemas from '../../schemas';
+import schemas from '../../schemas/index';
 import { ACTIONS } from './constants';
 
 function configureStore(reducer, initialState) {

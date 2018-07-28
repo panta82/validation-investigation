@@ -1,7 +1,7 @@
 {
   "name": "example-api-documentation",
   "version": "0.0.1",
-  "description": "Example API Documentation",
+  "description": "Doca docs",
   "license": "None",
   "private": true,
   "engines": {

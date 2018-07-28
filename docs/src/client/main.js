@@ -7,7 +7,7 @@ import config from '../../config';
 try {
   const reqCSS = require.context('doca-bootstrap-theme/styles', true, /\.css$/ig);
   reqCSS.keys().forEach(reqCSS);
-  const reqLESS = require.context('doca-bootstrap-theme/styles', true, /\.less$/ig);
+  const reqLESS = require.text('doca-bootstrap-theme/styles', true, /\.less$/ig);
   reqLESS.keys().forEach(reqLESS);
   const reqSASS = require.context('doca-bootstrap-theme/styles', true, /\.scss$/ig);
   reqSASS.keys().forEach(reqSASS);
@@ -18,7 +18,6 @@ try {
 const mapStateToProps = state => ({
   schemas: state.schemas,
   config,
-  introduction: Introduction,
 });
 
 const Main = connect(
