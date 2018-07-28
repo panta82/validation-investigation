@@ -1,5 +1,5 @@
 const { userSchema } = require("./ajv_schemas");
-const translate = require("../i18n");
+const translate = require("../../i18n");
 
 function test(schema, name, ob) {
   console.log(name + ":");

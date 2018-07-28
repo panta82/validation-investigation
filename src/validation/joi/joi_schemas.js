@@ -1,6 +1,6 @@
 const joi = require('joi');
 
-const ERR = require('../error_codes');
+const ERR = require('../../error_codes');
 
 // NOTE: No custom error messages?!
 

@@ -1,5 +1,5 @@
 const { UserSchema } = require("./yup_schemas");
-const translate = require("../i18n");
+const translate = require("../../i18n");
 
 /**
  * @param {ValidationError[]} errors

@@ -1,9 +1,11 @@
+#!/usr/bin/env node
+
 const path = require('path');
 
 const testers = {
-  yup: require('./yup/yup_tester').testYup,
-  validate: require('./validate/validate_tester').testValidate,
-  ajv: require('./ajv/ajv_tester').testAjv,
+  yup: require('../src/validation/yup/yup_tester').testYup,
+  validate: require('../src/validation/validate/validate_tester').testValidate,
+  ajv: require('../src/validation/ajv/ajv_tester').testAjv,
 };
 
 if (process.argv[2] === '-h' || process.argv[2] === '--help') {

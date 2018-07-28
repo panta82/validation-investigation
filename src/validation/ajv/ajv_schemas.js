@@ -9,7 +9,7 @@ const ajv = new Ajv({
 
 require('ajv-errors')(ajv);
 
-const ERR = require('../error_codes');
+const ERR = require('../../error_codes');
 
 const SCHEMAS = {
   street_address: 'street_address',

@@ -1,5 +1,5 @@
 const { UserSchema } = require("./validate_schemas");
-const translate = require("../i18n");
+const translate = require("../../i18n");
 
 // Poor documentation
 // Doesn't stop recursing into sub-schemas

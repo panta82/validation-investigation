@@ -1,48 +1,52 @@
-const Schema = require('validate');
+const Schema = require('validate.js');
 
-const ERR = require('../error_codes');
+const ERR = require('../../error_codes');
 
 const StreetAddressSchema = {
   address_line_1: {
-    type: String,
-    required: true,
-    message: ERR.street_address_required
+    presence: {
+      message: ERR.street_address_required 
+    }, 
   },
   
-  address_line_2: {
-    type: String,
-  },
+  address_line_2: {},
   
   city: {
-    type: String,
-    length: {min: 2},
-    message: ERR.street_address_city_length
+    presence: {
+      message: ERR.street_address_city_length
+    },
+    length: {
+      minimum: 2,
+      message: ERR.street_address_city_length
+    },
   }
 };
 
 const PhoneSchema = {
   calling_hours: {
-    type: String,
-    match: /^[0-9]+-[0-9]+$/,
-    message: ERR.phone_calling_hours_format,
+    format: {
+      pattern: /^[0-9]+-[0-9]+$/,
+      message: ERR.phone_calling_hours_format
+    }
   },
   number: {
-    type: String,
-    required: true,
-    message: ERR.phone_number_required
+    presence: {
+      message: ERR.phone_number_required
+    }
   }
 };
 
 const IdentitySchema = {
   name: {
-    type: String,
-    required: true,
-    message: ERR.identity_name_required
+    presence: {
+      message: ERR.identity_name_required
+    },
   },
   primary_address: {
   	schema: StreetAddressSchema,
-		required: true,
-		message: ERR.identity_primary_address_required
+		presence: {
+      message: ERR.identity_primary_address_required
+    },
 	},
   secondary_address: {
 		schema: StreetAddressSchema,
@@ -50,7 +54,7 @@ const IdentitySchema = {
   phone_numbers: {
   	type: Array,
 		each: PhoneSchema,
-		required: true,
+		presence: true,
 		message: ERR.identity_at_least_one_phone_number_required
 	}
 };
@@ -58,7 +62,7 @@ const IdentitySchema = {
 const UserSchema = {
   username: {
   	type: String,
-		required: true,
+		presence: true,
 		message: ERR.user_username_required
 	},
   identities: {
