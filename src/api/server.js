@@ -50,6 +50,8 @@ function Server(port = 3000) {
 			console.log(`API is available on http://localhost:${port}/`);
 		});
 	};
+	
+	
 }
 
 module.exports = {
