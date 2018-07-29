@@ -25,6 +25,8 @@ function test(schema, name, ob) {
 }
 
 function testAjv() {
+	console.log(userSchema);
+
   test(userSchema, "Invalid", {
     whatsThis: "!??",
     username: "test",
@@ -55,6 +57,7 @@ function testAjv() {
       }
     ]
   });
+ 
 }
 
 module.exports = {

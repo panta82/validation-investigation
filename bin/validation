@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const path = require('path');
+debugger
 
 const testers = {
   yup: require('../src/validation/yup/yup_tester').testYup,

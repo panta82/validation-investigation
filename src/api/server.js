@@ -51,7 +51,9 @@ function Server(port = 3000) {
 		});
 	};
 	
+	this.getSwaggerSpec = () => {
 	
+	};
 }
 
 module.exports = {

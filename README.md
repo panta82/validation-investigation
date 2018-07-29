@@ -87,3 +87,8 @@ on hdd before doing anything else)
 - https://github.com/cloudflare/json-schema-loader
 - https://github.com/cloudflare/json-schema-example-loader
 
+Given up because:
+
+- API spec is too REST-like. Based on resource. Ugly.
+
+- Doca is in midst of refactoring.
