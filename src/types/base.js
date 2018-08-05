@@ -360,7 +360,7 @@ class Schema extends Model {
 		return result;
 	}
 
-	assign() {
+	assign(source) {
 		super.assign(source);
 		this._baseProperties = lodash.merge({}, this.properties);
 		this._setId(this.$id);
@@ -469,7 +469,6 @@ class Schema extends Model {
 		);
 	}
 }
-Schema._IDS = new WeakMap();
 
 class UnknownSchemaPropertyError extends CustomError {
 	constructor(property, id) {
