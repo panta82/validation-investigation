@@ -363,29 +363,6 @@ class Schema extends Model {
 	assign(source) {
 		super.assign(source);
 		this._baseProperties = lodash.merge({}, this.properties);
-		this._setId(this.$id);
-	}
-
-	_setId(id) {
-		if (Schema._IDS.get(this.$id) === this) {
-			Schema._IDS.delete(this.$id);
-		}
-
-		let idOwner = Schema._IDS.get(id);
-		if (idOwner && idOwner !== this) {
-			// Need to guess new ID
-			let [_, base, suffix] = /^(.+?)(?:_([0-9]+))?$/.exec(id) || ['', id || 'Schema', 0];
-			suffix = Number(suffix) || 0;
-			do {
-				suffix++;
-				id = `${base}_${suffix}`;
-			} while (!Schema._IDS.get(id));
-		}
-
-		this.$id = id;
-		Schema._IDS.set(this.$id, this);
-
-		return id;
 	}
 
 	setDescription(description) {
@@ -393,10 +370,10 @@ class Schema extends Model {
 		return this;
 	}
 
-	_assertProperties(ob) {
-		lodash.forEach(ob, (_, key) => {
-			if (!(key in this._baseProperties)) {
-				throw new UnknownSchemaPropertyError(key, this.$id);
+	_assertProperties(props) {
+		props.forEach(prop => {
+			if (!(prop in this._baseProperties)) {
+				throw new UnknownSchemaPropertyError(prop, this.$id);
 			}
 		});
 	}
@@ -407,7 +384,9 @@ class Schema extends Model {
 	 * @return {Schema}
 	 */
 	refine(...additionalSchemas) {
-		this._assertProperties(additionalSchema.properties);
+		additionalSchemas.forEach(
+			as => as.properties && this._assertProperties(Object.keys(as.properties))
+		);
 		return new Schema(lodash.merge({}, this, ...additionalSchemas));
 	}
 
@@ -419,7 +398,7 @@ class Schema extends Model {
 		this._assertProperties(propertyList);
 
 		const result = new Schema(this);
-		result._setId(this.$id + '/with');
+		result.$id = this.$id + '/with/' + propertyList.join(',');
 		result.properties = lodash.pickBy(
 			result.properties,
 			(_, key) => propertyList.indexOf(key) >= 0
@@ -436,7 +415,7 @@ class Schema extends Model {
 
 		const result = new Schema(this);
 		result.properties = lodash.pickBy(result.properties, (_, key) => propertyList.indexOf(key) < 0);
-		result._setId(this.$id + '/without');
+		result.$id = this.$id + '/without/' + propertyList.join(',');
 		return result;
 	}
 
@@ -449,7 +428,7 @@ class Schema extends Model {
 
 		const result = new Schema(this);
 		result.required = requiredProperties;
-		result._setId(this.$id + '/required');
+		result.$id = this.$id + '/required/' + requiredProperties.join(',');
 		return result;
 	}
 
@@ -460,7 +439,7 @@ class Schema extends Model {
 		return new Schema(
 			lodash.merge(
 				{
-					$id: this.$id + '_array',
+					$id: this.$id + '/array',
 					type: 'array',
 					items: this.$id,
 				},
